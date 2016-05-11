@@ -1,0 +1,1 @@
+recursive-include {{ cookiecutter.python_package_name  }}/static *.*

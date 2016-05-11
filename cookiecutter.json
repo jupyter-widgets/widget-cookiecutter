@@ -1,0 +1,9 @@
+{
+	"author_name": "",
+	"author_email": "",
+	"github_project_name": "jupyter-widget-example",
+	"github_organization_name": "jupyter",
+	"python_package_name": "ipywidgetexample",
+	"npm_package_name": "jupyter-widget-example",
+	"project_short_description": "A Custom Jupyter Widget Library"
+}

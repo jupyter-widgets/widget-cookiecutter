@@ -1,0 +1,23 @@
+{
+  "name": "{{ cookiecutter.npm_package_name}}",
+  "version": "0.0.1",
+  "description": "{{ cookiecutter.project_short_description }}",
+  "author": "{{ cookiecutter.author_name }}",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/{{ cookiecutter.github_organization_name }}/{{ cookiecutter.github_project_name }}.git"
+  },
+  "scripts": {
+    "prepublish": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "json-loader": "^0.5.4",
+    "webpack": "^1.12.14"
+  },
+  "dependencies": {
+    "jupyter-js-widgets": "^1.1.1",
+    "underscore": "^1.8.3"
+  }
+}
