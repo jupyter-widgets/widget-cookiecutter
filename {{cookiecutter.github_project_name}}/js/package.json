@@ -8,6 +8,12 @@
     "type": "git",
     "url": "https://github.com/{{ cookiecutter.github_organization_name }}/{{ cookiecutter.github_project_name }}.git"
   },
+  "keywords": [
+    "jupyter",
+    "widgets",
+    "ipython",
+    "ipywidgets"
+  ],
   "scripts": {
     "prepublish": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -151,6 +151,7 @@ setup_args = {
     ],
     'classifiers': [
         'Development Status :: 4 - Beta',
+        'Framework :: IPython',
         'Intended Audience :: Developers',
         'Intended Audience :: Science/Research',
         'Topic :: Multimedia :: Graphics',
