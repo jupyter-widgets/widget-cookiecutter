@@ -1,7 +1,7 @@
 # widget-cookiecutter
 #### A cookiecutter template for creating a custom Jupyter widget project
 
-[![Documentation Status](https://readthedocs.org/projects/ipywidgets/badge/?version=latest)](http://ipywidgets.readthedocs.org/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/ipywidgets/badge/?version=latest)](https://ipywidgets.readthedocs.io/en/latest/?badge=latest)
 [![Join the chat at https://gitter.im/ipython/ipywidgets](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ipython/ipywidgets?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 A [cookiecutter](https://github.com/audreyr/cookiecutter) template for a custom
@@ -54,7 +54,7 @@ your custom Jupyter widget.
 
 ## More information
 
-- [Documentation of Jupyter widgets](http://ipywidgets.readthedocs.org/en/latest/)
+- [Documentation of Jupyter widgets](https://ipywidgets.readthedocs.io/en/latest/)
 - Ask questions about using widget-cookiecutter on the Gitter channel
 - If you find an issue with widget-cookiecutter or would like to contribute an
   enhancement, [file an issue](https://github.com/jupyter/widget-cookiecutter/issues/new)
