@@ -1,6 +1,6 @@
 {
-  "name": "{{ cookiecutter.npm_package_name}}",
-  "version": "0.0.1",
+  "name": "{{ cookiecutter.npm_package_name }}",
+  "version": "{{ cookiecutter.npm_package_version }}",
   "description": "{{ cookiecutter.project_short_description }}",
   "author": "{{ cookiecutter.author_name }}",
   "main": "src/index.js",
@@ -23,7 +23,7 @@
     "webpack": "^1.12.14"
   },
   "dependencies": {
-    "jupyter-js-widgets": "^1.1.1",
+    "jupyter-js-widgets": "^2.1.4",
     "underscore": "^1.8.3"
   }
 }
