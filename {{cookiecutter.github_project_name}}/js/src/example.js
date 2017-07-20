@@ -1,4 +1,4 @@
-var widgets = require('jupyter-js-widgets');
+var widgets = require('@jupyter-widgets/base');
 var _ = require('underscore');
 
 
@@ -18,7 +18,7 @@ var _ = require('underscore');
 // When serialiazing the entire widget state for embedding, only values that
 // differ from the defaults will be specified.
 var HelloModel = widgets.DOMWidgetModel.extend({
-    defaults: _.extend(_.result(this, 'widgets.DOMWidgetModel.prototype.defaults'), {
+    defaults: _.extend(widgets.DOMWidgetModel.prototype.defaults(), {
         _model_name : 'HelloModel',
         _view_name : 'HelloView',
         _model_module : '{{ cookiecutter.npm_package_name }}',
