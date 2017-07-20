@@ -8,7 +8,6 @@ if (window.require) {
         map: {
             "*" : {
                 "{{ cookiecutter.npm_package_name }}": "nbextensions/{{ cookiecutter.npm_package_name }}/index",
-                "jupyter-js-widgets": "nbextensions/jupyter-js-widgets/extension"
             }
         }
     });
