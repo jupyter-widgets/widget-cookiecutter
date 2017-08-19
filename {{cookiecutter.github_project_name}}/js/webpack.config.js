@@ -1,10 +1,11 @@
+var path = require('path');
 var version = require('./package.json').version;
 
-// Custom webpack loaders are generally the same for all webpack bundles, hence
+// Custom webpack rules are generally the same for all webpack bundles, hence
 // stored in a separate local variable.
-var loaders = [
-    { test: /\.json$/, loader: 'json-loader' },
-];
+var rules = [
+    { test: /\.css$/, use: ['style-loader', 'css-loader']}
+]
 
 
 module.exports = [
@@ -19,7 +20,7 @@ module.exports = [
         entry: './src/extension.js',
         output: {
             filename: 'extension.js',
-            path: '../{{ cookiecutter.python_package_name }}/static',
+            path: path.resolve(__dirname, '..', '{{ cookiecutter.python_package_name }}', 'static'),
             libraryTarget: 'amd'
         }
     },
@@ -32,12 +33,12 @@ module.exports = [
         entry: './src/index.js',
         output: {
             filename: 'index.js',
-            path: '../{{ cookiecutter.python_package_name }}/static',
+            path: path.resolve(__dirname, '..', '{{ cookiecutter.python_package_name }}', 'static'),
             libraryTarget: 'amd'
         },
         devtool: 'source-map',
         module: {
-            loaders: loaders
+            rules: rules
         },
         externals: ['@jupyter-widgets/base']
     },
@@ -58,13 +59,13 @@ module.exports = [
         entry: './src/embed.js',
         output: {
             filename: 'index.js',
-            path: './dist/',
+            path: path.resolve(__dirname, '..', './dist/'),
             libraryTarget: 'amd',
             publicPath: 'https://unpkg.com/{{ cookiecutter.npm_package_name }}@' + version + '/dist/'
         },
         devtool: 'source-map',
         module: {
-            loaders: loaders
+            rules: rules
         },
         externals: ['@jupyter-widgets/base']
     }

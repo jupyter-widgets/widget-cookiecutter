@@ -114,7 +114,7 @@ class NPM(Command):
             if not os.path.exists(t):
                 msg = 'Missing file: %s' % t
                 if not has_npm:
-                    msg += '\nnpm is required to build a development version of widgetsnbextension'
+                    msg += '\nnpm is required to build a development version of a widget extension'
                 raise ValueError(msg)
 
         # update package data in case this created new files
@@ -138,7 +138,7 @@ setup_args = {
         ]),
     ],
     'install_requires': [
-        'ipywidgets>=7.0.0b1',
+        'ipywidgets>=7.0.0',
     ],
     'packages': find_packages(),
     'zip_safe': False,
@@ -151,7 +151,7 @@ setup_args = {
 
     'author': '{{ cookiecutter.author_name }}',
     'author_email': '{{ cookiecutter.author_email }}',
-    'url': 'http://jupyter.org',
+    'url': 'https://github.com/{{ cookiecutter.github_organization_name  }}/{{ cookiecutter.github_project_name }}',
     'keywords': [
         'ipython',
         'jupyter',
