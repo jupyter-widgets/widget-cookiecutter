@@ -32,6 +32,6 @@
     "lodash": "^4.17.4"
   },
   "jupyterlab": {
-    "extension": "src/extension-jupyterlab"
+    "extension": "lib/extension-jupyterlab"
   }
 }
