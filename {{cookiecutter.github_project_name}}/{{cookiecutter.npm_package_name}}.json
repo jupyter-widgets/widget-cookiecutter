@@ -1,0 +1,5 @@
+{
+  "load_extensions": {
+    "{{ cookiecutter.npm_package_name }}/extension": true
+  }
+}
