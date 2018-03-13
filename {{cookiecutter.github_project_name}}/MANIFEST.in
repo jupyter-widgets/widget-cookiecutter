@@ -1,1 +1,2 @@
 recursive-include {{ cookiecutter.python_package_name  }}/static *.*
+include {{ cookiecutter.npm_package_name }}.json'

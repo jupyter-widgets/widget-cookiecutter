@@ -135,7 +135,8 @@ setup_args = {
             '{{ cookiecutter.python_package_name }}/static/extension.js',
             '{{ cookiecutter.python_package_name }}/static/index.js',
             '{{ cookiecutter.python_package_name }}/static/index.js.map',
-        ]),
+        ],),
+        ('etc/jupyter/nbconfig/notebook.d/' , '{{ cookiecutter.npm_package_name }}.json')
     ],
     'install_requires': [
         'ipywidgets>=7.0.0',
