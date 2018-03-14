@@ -12,7 +12,8 @@
     "jupyter",
     "widgets",
     "ipython",
-    "ipywidgets"
+    "ipywidgets",
+    "jupyterlab-extension"
   ],
   "files": [
     "lib/**/*.js",
