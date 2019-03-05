@@ -25,7 +25,7 @@ var HelloModel = widgets.DOMWidgetModel.extend({
         _view_module : '{{ cookiecutter.npm_package_name }}',
         _model_module_version : '{{ cookiecutter.npm_package_version }}',
         _view_module_version : '{{ cookiecutter.npm_package_version }}',
-        value : 'Hello World'
+        value : 'Hello World!'
     })
 });
 
