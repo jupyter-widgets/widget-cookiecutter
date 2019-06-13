@@ -22,6 +22,8 @@
   "scripts": {
     "clean": "rimraf dist/",
     "prepublish": "webpack",
+    "build": "webpack",
+    "watch": "webpack --watch --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

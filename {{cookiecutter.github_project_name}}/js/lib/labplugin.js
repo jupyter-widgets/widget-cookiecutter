@@ -1,4 +1,4 @@
-var {{ cookiecutter.npm_package_name }} = require('./index');
+var plugin = require('./index');
 var base = require('@jupyter-widgets/base');
 
 module.exports = {
@@ -7,8 +7,8 @@ module.exports = {
   activate: function(app, widgets) {
       widgets.registerWidget({
           name: '{{ cookiecutter.npm_package_name }}',
-          version: {{ cookiecutter.npm_package_name }}.version,
-          exports: {{ cookiecutter.npm_package_name }}
+          version: plugin.version,
+          exports: plugin
       });
   },
   autoStart: true
