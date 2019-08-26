@@ -11,6 +11,9 @@ To install use pip:
     $ pip install {{ cookiecutter.python_package_name }}
     $ jupyter nbextension enable --py --sys-prefix {{ cookiecutter.python_package_name  }}
 
+To install for jupyterlab
+
+    $ jupyter labextension install {{ cookiecutter.python_package_name  }}
 
 For a development installation (requires npm),
 
