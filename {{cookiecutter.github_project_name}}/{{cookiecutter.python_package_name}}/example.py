@@ -14,13 +14,13 @@ class HelloWorld(widgets.DOMWidget):
     _view_name = Unicode('HelloView').tag(sync=True)
     """ Name of the widget model class in front-end """
     _model_name = Unicode('HelloModel').tag(sync=True)
-    """ Name of the npm module containing widget view """
+    """ Name of the front-end module containing widget view """
     _view_module = Unicode('{{ cookiecutter.npm_package_name }}').tag(sync=True)
-    """ Name of the npm module containing widget front-end model """
+    """ Name of the front-end module containing widget model """
     _model_module = Unicode('{{ cookiecutter.npm_package_name }}').tag(sync=True)
-    """ Version of the npm module containing widget view """
+    """ Version of the front-end module containing widget view """
     _view_module_version = Unicode('^{{ cookiecutter.npm_package_version }}').tag(sync=True)
-    """ Version of the npm module containing widget front-end model """
+    """ Version of the front-end module containing widget model """
     _model_module_version = Unicode('^{{ cookiecutter.npm_package_version }}').tag(sync=True)
     """ Widget specific property """
     value = Unicode('Hello World!').tag(sync=True)
