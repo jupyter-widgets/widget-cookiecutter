@@ -32,6 +32,7 @@ var HelloModel = widgets.DOMWidgetModel.extend({
 
 // Custom View. Renders the widget model.
 var HelloView = widgets.DOMWidgetView.extend({
+    // render widget
     render: function() {
         this.value_changed();
         this.model.on('change:value', this.value_changed, this);
