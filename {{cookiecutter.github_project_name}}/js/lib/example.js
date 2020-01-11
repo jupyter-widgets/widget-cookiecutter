@@ -1,6 +1,8 @@
 var widgets = require('@jupyter-widgets/base');
 var _ = require('lodash');
 
+// See example.py for the kernel counterpart to this file.
+
 
 // Custom Model. Custom widgets models must at least provide default values
 // for model attributes, including
@@ -32,8 +34,12 @@ var HelloModel = widgets.DOMWidgetModel.extend({
 
 // Custom View. Renders the widget model.
 var HelloView = widgets.DOMWidgetView.extend({
+    // Defines how the widget gets rendered into the DOM
     render: function() {
         this.value_changed();
+
+        // Observe changes in the value traitlet in Python, and define
+        // a custom callback.
         this.model.on('change:value', this.value_changed, this);
     },
 
@@ -44,6 +50,6 @@ var HelloView = widgets.DOMWidgetView.extend({
 
 
 module.exports = {
-    HelloModel : HelloModel,
-    HelloView : HelloView
+    HelloModel: HelloModel,
+    HelloView: HelloView
 };
