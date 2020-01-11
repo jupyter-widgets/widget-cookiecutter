@@ -6,8 +6,8 @@ def _jupyter_nbextension_paths():
     """Called by Jupyter Notebook Server to detect if it is a valid nbextension and
     to install the widget
 
-    Retuns metadata with values
-    ===========================
+    Returns
+    =======
     section: The section of the Jupyter Notebook Server to change.
         Must be 'notebook' for widget extensions
     src: Source directory name to copy files from. Webpack outputs generated files
