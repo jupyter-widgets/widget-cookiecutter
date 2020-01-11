@@ -1,8 +1,8 @@
 import ipywidgets as widgets
-""
 from traitlets import Unicode
 
-""" Declare widget class and register to widget registry """
+# See js/lib/example.js for the frontend counterpart to this file.
+
 @widgets.register
 class HelloWorld(widgets.DOMWidget):
     """An example widget."""
@@ -26,7 +26,6 @@ class HelloWorld(widgets.DOMWidget):
 
     # Widget specific property.
     # Widget properties are defined as traitlets. Any property tagged with `sync=True`
-    # is automatically synced to the frontend *any* time it changes. It is
-    # accessible from the frontend model as `this.get("value")` and from the
-    # frontend view as `this.model.get("value")`.
+    # is automatically synced to the frontend *any* time it changes in Python.
+    # It is synced back to Python from the frontend *any* time the model is touched.
     value = Unicode('Hello World!').tag(sync=True)
