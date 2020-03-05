@@ -31,7 +31,7 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "@jupyter-widgets/base": "^1.1 || ^2",
+    "@jupyter-widgets/base": "^1.1 || ^2 || ^3",
     "lodash": "^4.17.4"
   },
   "jupyterlab": {
