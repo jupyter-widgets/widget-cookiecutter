@@ -28,8 +28,7 @@ When actively developing your extension, build Jupyter Lab with the command:
 
     $ jupyter lab --watch
 
-This take a minute or so to get started, but then allows you to hot-reload your javascript extension.
-To see a change, save your javascript, watch the terminal for an update.
+This takes a minute or so to get started, but then automatically rebuilds JupyterLab when your javascript changes.
 
 Note on first `jupyter lab --watch`, you may need to touch a file to get Jupyter Lab to open.
 
