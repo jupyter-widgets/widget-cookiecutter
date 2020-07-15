@@ -4,9 +4,11 @@ from setuptools.command.sdist import sdist
 from setuptools.command.build_py import build_py
 from setuptools.command.egg_info import egg_info
 from subprocess import check_call
+from glob import glob
 import os
-import sys
+import json
 import platform
+import sys
 from distutils import log
 
 here = os.path.dirname(os.path.abspath(__file__))
@@ -53,10 +55,23 @@ def js_prerelease(command, strict=False):
     return DecoratedCommand
 
 
+def get_data_files():
+    """Get the data files."""
+    with open(os.path.join('js', 'package.json')) as f:
+        package_json = json.load(f)
+    tgz = '{{ cookiecutter.npm_package_name }}-%s.tgz' % package_json['version']
+
+    return [
+        ('share/jupyter/nbextensions/{{ cookiecutter.npm_package_name }}', glob('{{ cookiecutter.python_package_name }}/static/*')),
+        ('etc/jupyter/nbconfig/notebook.d', ['{{ cookiecutter.npm_package_name }}.json']),
+        ('share/jupyter/lab/extensions', ['js/' + tgz]),
+    ]
+
+
 def update_package_data(distribution):
     """Update package_data to catch changes during setup."""
     build_py = distribution.get_command_obj('build_py')
-    # distribution.package_data = find_package_data()
+    distribution.data_files = get_data_files()
     # re-init build_py options which load package_data
     build_py.finalize_options()
 
@@ -80,14 +95,14 @@ class NPM(Command):
         pass
 
     def get_npm_name(self):
-        npm_name = 'npm';
+        npm_name = 'npm'
         if platform.system() == 'Windows':
-            npm_name = 'npm.cmd';
+            npm_name = 'npm.cmd'
 
-        return npm_name;
+        return npm_name
 
     def has_npm(self):
-        npm_name = self.get_npm_name();
+        npm_name = self.get_npm_name()
         try:
             check_call([npm_name, '--version'])
             return True
@@ -107,8 +122,9 @@ class NPM(Command):
 
         if self.should_run_npm_install():
             log.info("Installing build dependencies with npm.  This may take a while...")
-            npm_name = self.get_npm_name();
+            npm_name = self.get_npm_name()
             check_call([npm_name, 'install'], cwd=node_root, stdout=sys.stdout, stderr=sys.stderr)
+            check_call([npm_name, 'pack'], cwd=node_root, stdout=sys.stdout, stderr=sys.stderr)
             os.utime(self.node_modules, None)
 
         for t in self.targets:
@@ -131,14 +147,7 @@ setup_args = dict(
     description='{{ cookiecutter.project_short_description }}',
     long_description=LONG_DESCRIPTION,
     include_package_data=True,
-    data_files=[
-        ('share/jupyter/nbextensions/{{ cookiecutter.npm_package_name }}', [
-            '{{ cookiecutter.python_package_name }}/static/extension.js',
-            '{{ cookiecutter.python_package_name }}/static/index.js',
-            '{{ cookiecutter.python_package_name }}/static/index.js.map',
-        ],),
-        ('etc/jupyter/nbconfig/notebook.d' ,['{{ cookiecutter.npm_package_name }}.json'])
-    ],
+    data_files=get_data_files(),
     install_requires=[
         'ipywidgets>=7.0.0',
     ],

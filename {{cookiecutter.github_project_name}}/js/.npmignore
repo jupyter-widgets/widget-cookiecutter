@@ -1,0 +1,1 @@
+{{ cookiecutter.npm_package_name }}-*.tgz

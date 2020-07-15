@@ -7,6 +7,7 @@ node_modules/
 
 # Compiled javascript
 {{ cookiecutter.python_package_name }}/static/
+js/{{ cookiecutter.npm_package_name }}-*.tgz
 
 # OS X
 .DS_Store
