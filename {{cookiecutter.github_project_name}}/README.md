@@ -1,32 +1,55 @@
-{{ cookiecutter.github_project_name }}
-===============================
+# {{ cookiecutter.github_project_name }}
 
 {{ cookiecutter.project_short_description }}
 
-Installation
-------------
+## Installation
 
-To install use pip:
+### User installation:
 
-    $ pip install {{ cookiecutter.python_package_name }}
-    $ jupyter nbextension enable --py --sys-prefix {{ cookiecutter.python_package_name  }}
+```bash
+pip install {{ cookiecutter.python_package_name }}
+jupyter nbextension enable --py --sys-prefix {{ cookiecutter.python_package_name  }}
+```
 
-To install for jupyterlab
+#### Install the JupyterLab extension
 
-    $ jupyter labextension install {{ cookiecutter.python_package_name  }}
+In order to install the JupyterLab extension, you will first need to ensure `nodejs` is available in your environment. You can install it from [the nodejs website](https://nodejs.org/en/download) or using `conda`:
+```bash
+conda install -c conda-forge nodejs
+```
 
-For a development installation (requires npm),
+You will also need to install the Widgets Manager for JupyterLab with:
 
-    $ git clone https://github.com/{{ cookiecutter.github_organization_name  }}/{{ cookiecutter.github_project_name }}.git
-    $ cd {{ cookiecutter.github_project_name }}
-    $ pip install -e .
-    $ jupyter nbextension install --py --symlink --sys-prefix {{ cookiecutter.python_package_name }}
-    $ jupyter nbextension enable --py --sys-prefix {{ cookiecutter.python_package_name }}
-    $ jupyter labextension install js
+```bash
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
+```
 
-When actively developing your extension, build Jupyter Lab with the command:
+If you already installed the Widgets Manager previously, you need to at least run the following command in order to install the {{ cookiecutter.python_package_name  }} labextension:
 
-    $ jupyter lab --watch
+```bash
+jupyter lab build
+```
+
+### Development installation
+
+```bash
+git clone https://github.com/{{ cookiecutter.github_organization_name  }}/{{ cookiecutter.github_project_name }}.git
+cd {{ cookiecutter.github_project_name }}
+pip install -e .
+
+# If using Jupyter Notebook
+jupyter nbextension install --py --symlink --sys-prefix {{ cookiecutter.python_package_name }}
+jupyter nbextension enable --py --sys-prefix {{ cookiecutter.python_package_name }}
+
+# If using JupyterLab
+jupyter labextension install @jupyter-widgets/jupyterlab-manager js
+```
+
+When actively developing your extension, build JupyterLab with the command:
+
+```bash
+jupyter lab --watch
+```
 
 This takes a minute or so to get started, but then automatically rebuilds JupyterLab when your javascript changes.
 
