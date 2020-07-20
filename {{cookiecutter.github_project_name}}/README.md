@@ -24,7 +24,7 @@ You will also need to install the Widgets Manager for JupyterLab with:
 jupyter labextension install @jupyter-widgets/jupyterlab-manager
 ```
 
-If you already installed the Widgets Manager previously, you need to at least run the following command in order to install the {{ cookiecutter.python_package_name  }} labextension:
+If you have previously installed the Widgets Manager then you will need to run the following command in order to finish installing the {{ cookiecutter.python_package_name  }} labextension:
 
 ```bash
 jupyter lab build
@@ -54,4 +54,3 @@ jupyter lab --watch
 This takes a minute or so to get started, but then automatically rebuilds JupyterLab when your javascript changes.
 
 Note on first `jupyter lab --watch`, you may need to touch a file to get Jupyter Lab to open.
-
