@@ -1,0 +1,47 @@
+name: Tests
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  run:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: [3.6, 3.7, 3.8]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup conda
+      uses: goanpeca/setup-miniconda@v1
+      with:
+        mamba-version: "*"
+        channels: conda-forge
+
+    - name: Conda install dependencies
+      shell: bash -l {0}
+      run: conda install python=${{ matrix.python-version }} pip cookiecutter ipywidgets
+
+    - name: Generate test project
+      shell: bash -l {0}
+      run: cookiecutter --config-file tests/testconfig.yml --no-input .
+
+    - name: Run pip install
+      shell: bash -l {0}
+      run: pip install ./jupyter-widget-testwidgets
+
+    - name: Test install
+      shell: bash -l {0}
+      run: |
+           test -d $CONDA_PREFIX/share/jupyter/nbextensions/jupyter-widget-testwidgets
+           test -f $CONDA_PREFIX/etc/jupyter/nbconfig/notebook.d/jupyter-widget-testwidgets.json
