@@ -20,7 +20,7 @@ module.exports = [
         entry: './lib/extension.js',
         output: {
             filename: 'extension.js',
-            path: path.resolve(__dirname, '..', '{{ cookiecutter.python_package_name }}', 'static'),
+            path: path.resolve(__dirname, '..', '{{ cookiecutter.python_package_name }}', 'nbextension'),
             libraryTarget: 'amd'
         }
     },
@@ -33,8 +33,9 @@ module.exports = [
         entry: './lib/index.js',
         output: {
             filename: 'index.js',
-            path: path.resolve(__dirname, '..', '{{ cookiecutter.python_package_name }}', 'static'),
-            libraryTarget: 'amd'
+            path: path.resolve(__dirname, '..', '{{ cookiecutter.python_package_name }}', 'nbextension'),
+            libraryTarget: 'amd',
+            publicPath: '',
         },
         devtool: 'source-map',
         module: {

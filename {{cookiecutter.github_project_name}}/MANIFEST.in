@@ -1,4 +1,9 @@
-recursive-include {{ cookiecutter.python_package_name  }}/static *.*
+recursive-include {{ cookiecutter.python_package_name  }}/nbextension *.*
+recursive-include {{ cookiecutter.python_package_name  }}/labextension *.*
+
+graft js
+graft tests
+
 include {{ cookiecutter.npm_package_name }}.json
 
 include LICENSE
