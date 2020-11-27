@@ -206,7 +206,7 @@ When installing published package in non-development mode
 ## More information
 
 - [Documentation of Jupyter widgets](https://ipywidgets.readthedocs.io/en/latest/)
-- Ask questions about using widget-cookiecutter on the Gitter channel
+- Ask questions about using widget-cookiecutter on the [Gitter channel)(https://gitter.im/jupyter-widgets/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 - If you find an issue with widget-cookiecutter or would like to contribute an
   enhancement, [file an issue](https://github.com/jupyter/widget-cookiecutter/issues/new)
   at the widget-cookiecutter GitHub repo.
