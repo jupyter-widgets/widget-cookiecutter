@@ -162,7 +162,7 @@ Build script for the widget package. Note that the `setup.py` is heavily customi
 
 To develop this package against the classic notebook, run:
 
-- `pip install -e .` (installs python package for development, runs `npm install` and `npm run build`)
+- `pip install -e .` (installs python package for development, runs `npm install` and `npm run build`) Note: if this fails, try to run `sudo apt install npm` before.
 - `jupyter nbextension install --py --symlink --sys-prefix <python_package_name>`\
 (symlinks `static/` directory into `<jupyter path>/nbextensions/<extension_name>/`). Now the notebook has access to the frontend code.
 - `jupyter nbextension enable --py --sys-prefix <python_package_name>`\
@@ -180,7 +180,7 @@ Now make some changes to your source code. Then:
 
 To develop this package against JupyterLab, run:
 
-- `pip install -e .` (installs python package for development, runs `npm install` and `npm run build`)
+- `pip install -e .` (installs python package for development, runs `npm install` and `npm run build`) Note: if this fails, try to run `sudo apt install npm` before.
 - `jupyter labextension install js`: this installs the current labextension into JupyterLab and enables it.
 - `jupyter lab --watch` starts JupyterLab, but in `--watch` mode: it will rebuild itself incrementally if it detects changes.
 
@@ -206,7 +206,7 @@ When installing published package in non-development mode
 ## More information
 
 - [Documentation of Jupyter widgets](https://ipywidgets.readthedocs.io/en/latest/)
-- Ask questions about using widget-cookiecutter on the [Gitter channel)(https://gitter.im/jupyter-widgets/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+- Ask questions about using widget-cookiecutter on the [Gitter channel](https://gitter.im/jupyter-widgets/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 - If you find an issue with widget-cookiecutter or would like to contribute an
   enhancement, [file an issue](https://github.com/jupyter/widget-cookiecutter/issues/new)
   at the widget-cookiecutter GitHub repo.
