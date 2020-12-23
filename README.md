@@ -16,12 +16,12 @@ of a custom Jupyter interactive widget library.
 
 ## Who uses widget-cookiecutter
 
-Popular widget libraries such as
-[bqplot](https://github.com/bloomberg/bqplot),
-[pythreejs](https://github.com/jovyan/pythreejs) and
-[ipyleaflet](https://github.com/ellisonbg/ipyleaflet)
- can serve as advanced examples of usage of the
-Jupyter widget infrastructure.
+These widgets libraries server as advanced examples of this template's usage in the Jupyter widget ecosystem:
+
+- [bqplot](https://github.com/bloomberg/bqplot)
+- [pythreejs](https://github.com/jovyan/pythreejs)
+- [ipyleaflet](https://github.com/ellisonbg/ipyleaflet)
+- [idom-jupyter](https://github.com/idom-team/idom-jupyter)
 
 ## Usage
 
