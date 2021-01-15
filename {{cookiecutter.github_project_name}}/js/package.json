@@ -21,9 +21,11 @@
   ],
   "scripts": {
     "clean": "rimraf dist/ && rimraf ../{{ cookiecutter.python_package_name }}/labextension/ && rimraf ../{{ cookiecutter.python_package_name }}/nbextension",
-    "prepublish": "yarn run clean && yarn run build",
-    "build": "webpack && yarn run build:labextension",
+    "prepublish": "yarn run clean && yarn run build:prod",
+    "build": "webpack && yarn run build:labextension:dev",
+    "build:prod": "webpack && yarn run build:labextension",
     "build:labextension": "jupyter labextension build .",
+    "build:labextension:dev": "jupyter labextension build --development True .",
     "watch": "webpack --watch --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
