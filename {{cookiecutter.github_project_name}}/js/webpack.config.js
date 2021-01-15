@@ -21,7 +21,8 @@ module.exports = [
         output: {
             filename: 'extension.js',
             path: path.resolve(__dirname, '..', '{{ cookiecutter.python_package_name }}', 'nbextension'),
-            libraryTarget: 'amd'
+            libraryTarget: 'amd',
+            publicPath: '' // publicPath is set in extension.js
         }
     },
     {// Bundle for the notebook containing the custom widget views and models
