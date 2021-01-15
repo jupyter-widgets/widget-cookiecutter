@@ -10,7 +10,7 @@ To install use pip:
 
     $ pip install {{ cookiecutter.python_package_name }}
 
-For a development installation (requires npm),
+For a development installation (requires [Node.js](https://nodejs.org) and [Yarn version 1](https://classic.yarnpkg.com/)),
 
     $ git clone https://github.com/{{ cookiecutter.github_organization_name  }}/{{ cookiecutter.github_project_name }}.git
     $ cd {{ cookiecutter.github_project_name }}
