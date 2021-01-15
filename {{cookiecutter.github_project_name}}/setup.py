@@ -33,13 +33,15 @@ jstargets = [
 ]
 
 data_files_spec = [
-    ('share/jupyter/nbextensions/{{ cookiecutter.npm_package_name }}', '{{ cookiecutter.python_package_name }}/static', '*.*'),
+    ('share/jupyter/nbextensions/{{ cookiecutter.npm_package_name }}', '{{ cookiecutter.python_package_name }}/nbextension', '*.*'),
+    ('share/jupyter/labextensions/{{ cookiecutter.npm_package_name }}', '{{ cookiecutter.python_package_name }}/labextension', "**"),
+    ("share/jupyter/labextensions/{{ cookiecutter.npm_package_name }}", '.', "install.json"),
     ('etc/jupyter/nbconfig/notebook.d', '.', '{{ cookiecutter.npm_package_name }}.json'),
 ]
 
 cmdclass = create_cmdclass('jsdeps', data_files_spec=data_files_spec)
 cmdclass['jsdeps'] = combine_commands(
-    install_npm(js_dir, build_cmd='build'), ensure_targets(jstargets),
+    install_npm(js_dir, npm=['yarn'], build_cmd='build:prod'), ensure_targets(jstargets),
 )
 
 setup_args = dict(
@@ -49,7 +51,7 @@ setup_args = dict(
     long_description=LONG_DESCRIPTION,
     include_package_data=True,
     install_requires=[
-        'ipywidgets>=7.0.0',
+        'ipywidgets>=7.6.0',
     ],
     packages=find_packages(),
     zip_safe=False,
@@ -68,14 +70,10 @@ setup_args = dict(
         'Intended Audience :: Developers',
         'Intended Audience :: Science/Research',
         'Topic :: Multimedia :: Graphics',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
 )
 

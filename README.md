@@ -46,7 +46,7 @@ information:
   implementation used in your custom widget.
 - `project_short_description` : a short description for your project that will
   be used for both the "backend" and "frontend" packages.
-  
+
 After this, you will have a directory containing files used for creating a
 custom Jupyter widget. You will now be able to easily package and distribute
 your custom Jupyter widget.
@@ -164,7 +164,7 @@ To develop this package against the classic notebook, run:
 
 - `pip install -e .` (installs python package for development, runs `npm install` and `npm run build`)
 - `jupyter nbextension install --py --symlink --sys-prefix <python_package_name>`\
-(symlinks `static/` directory into `<jupyter path>/nbextensions/<extension_name>/`). Now the notebook has access to the frontend code.
+(symlinks `nbextension/` directory into `<jupyter path>/nbextensions/<extension_name>/`). Now the notebook has access to the frontend code.
 - `jupyter nbextension enable --py --sys-prefix <python_package_name>`\
 (copies `<npm_package_name>.json` into  `<environment path>/etc/jupyter/nbconfig/notebook.d/` directory). Now the notebook will load your frontend code on page load.
 
@@ -173,23 +173,22 @@ Now make some changes to your source code. Then:
 - After making Python code changes, restarting the notebook kernel will be enough to reflect changes
 - After making JavaScript code changes:
     - `cd js`
-    - `npm run build`
+    - `yarn run build`
     - Refresh browser to reflect changes
 
 ## Local Dev Installation for JupyterLab
 
 To develop this package against JupyterLab, run:
 
-- `pip install -e .` (installs python package for development, runs `npm install` and `npm run build`)
-- `jupyter labextension install js`: this installs the current labextension into JupyterLab and enables it.
-- `jupyter lab --watch` starts JupyterLab, but in `--watch` mode: it will rebuild itself incrementally if it detects changes.
+- `pip install -e .` (installs python package for development, runs `yarn install` and `yarn run build` and installs the labextension)
+- `jupyter labextension delevop <python_package_name>`.
 
 Now make some changes to your source code. Then:
 
 - After making Python code changes, restarting the notebook kernel will be enough to reflect changes
 - After making JavaScript code changes:
     - `cd js`
-    - `npm run build`
+    - `yarn run build`
     - Refresh browser to reflect changes
 
 ## Publishing Widget
@@ -197,7 +196,7 @@ Follow the steps in (RELEASE.md) to publish widget python package and npm packag
 
 ## Widget Installation Process for Notebook
 When installing published package in non-development mode
-- `pip install` installs python package for access from kernel and copies frontend code files from `static/` directory into `<jupyter path>/nbextensions/<extension_name>/` and enables by copying `<npm_package_name>.json` file into `<environment path>/etc/jupyter/nbconfig/notebook.d/` directory.
+- `pip install` installs python package for access from kernel and copies frontend code files from `nbextension/` directory into `<jupyter path>/nbextensions/<extension_name>/` and enables by copying `<npm_package_name>.json` file into `<environment path>/etc/jupyter/nbconfig/notebook.d/` directory.
 
 ## Widget Load Process for Notebook
 - Python code is loaded into kernel from python package directory
