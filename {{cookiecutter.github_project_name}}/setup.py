@@ -36,7 +36,7 @@ data_files_spec = [
     ('share/jupyter/nbextensions/{{ cookiecutter.npm_package_name }}', '{{ cookiecutter.python_package_name }}/nbextension', '*.*'),
     ('share/jupyter/labextensions/{{ cookiecutter.npm_package_name }}', '{{ cookiecutter.python_package_name }}/labextension', "**"),
     ("share/jupyter/labextensions/{{ cookiecutter.npm_package_name }}", '.', "install.json"),
-    ('etc/jupyter/nbconfig/notebook.d', '.', '{{ cookiecutter.npm_package_name }}.json'),
+    ('etc/jupyter/nbconfig/notebook.d', '.', '{{ cookiecutter.python_package_name }}.json'),
 ]
 
 cmdclass = create_cmdclass('jsdeps', data_files_spec=data_files_spec)
