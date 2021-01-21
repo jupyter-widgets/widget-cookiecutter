@@ -2,7 +2,7 @@ var plugin = require('./index');
 var base = require('@jupyter-widgets/base');
 
 module.exports = {
-  id: '{{ cookiecutter.npm_package_name }}',
+  id: '{{ cookiecutter.npm_package_name }}:plugin',
   requires: [base.IJupyterWidgetRegistry],
   activate: function(app, widgets) {
       widgets.registerWidget({
