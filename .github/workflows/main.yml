@@ -38,12 +38,12 @@ jobs:
 
     - name: Run pip install
       shell: bash -l {0}
-      run: pip install ./jupyter-widget-testwidgets
+      run: python -m pip install ./jupyter-widget-testwidgets
 
     - name: Test install
       shell: bash -l {0}
       run: |
-           test -d $CONDA_PREFIX/share/jupyter/nbextensions/jupyter-widget-testwidgets
-           test -f $CONDA_PREFIX/etc/jupyter/nbconfig/notebook.d/jupyter-widget-testwidgets.json
-           test -d $CONDA_PREFIX/share/jupyter/labextensions/jupyter-widget-testwidgets
-           test -f $CONDA_PREFIX/share/jupyter/labextensions/jupyter-widget-testwidgets/package.json
+           test -d $CONDA_PREFIX/share/jupyter/nbextensions/@jupyter-widgets/jupyter-widget-testwidgets
+           test -f $CONDA_PREFIX/etc/jupyter/nbconfig/notebook.d/jupyter_widget_example.json
+           test -d $CONDA_PREFIX/share/jupyter/labextensions/@jupyter-widgets/jupyter-widget-testwidgets
+           test -f $CONDA_PREFIX/share/jupyter/labextensions/@jupyter-widgets/jupyter-widget-testwidgets/package.json
