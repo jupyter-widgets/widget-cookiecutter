@@ -8,8 +8,7 @@ from jupyter_packaging import (
     combine_commands,
 )
 
-HERE = Path(__file__).absolute().parent
-JS_DIR = HERE / 'js'
+JS_DIR = Path(__file__).resolve().parent / 'js'
 
 # Representative files that should exist after a successful build
 jstargets = [JS_DIR / 'dist' / 'index.js']
