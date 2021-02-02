@@ -1,5 +1,5 @@
 from setuptools import setup
-from os import path
+from pathlib import Path
 
 from jupyter_packaging import (
     create_cmdclass,
@@ -8,12 +8,11 @@ from jupyter_packaging import (
     combine_commands,
 )
 
-HERE = path.dirname(path.abspath(__file__))
-
-js_dir = path.join(HERE, 'js')
+HERE = Path(__file__).absolute().parent
+JS_DIR = HERE / 'js'
 
 # Representative files that should exist after a successful build
-jstargets = [path.join(js_dir, 'dist', 'index.js')]
+jstargets = [JS_DIR / 'dist' / 'index.js']
 
 data_files_spec = [
     ('share/jupyter/nbextensions/{{ cookiecutter.npm_package_name }}', '{{ cookiecutter.python_package_name }}/nbextension', '*.*'),
@@ -24,8 +23,9 @@ data_files_spec = [
 
 cmdclass = create_cmdclass('jsdeps', data_files_spec=data_files_spec)
 cmdclass['jsdeps'] = combine_commands(
-    install_npm(js_dir, npm=['yarn'], build_cmd='build:prod'),
+    install_npm(JS_DIR, npm=['yarn'], build_cmd='build:prod'),
     ensure_targets(jstargets),
 )
 
+# See setup.cfg for other parameters
 setup(cmdclass=cmdclass)
