@@ -1,10 +1,8 @@
-{{ cookiecutter.github_project_name }}
-===============================
+# {{ cookiecutter.github_project_name }}
 
 {{ cookiecutter.project_short_description }}
 
-Installation
-------------
+## Installation
 
 To install use pip:
 
