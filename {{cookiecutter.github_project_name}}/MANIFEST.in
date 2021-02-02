@@ -9,6 +9,7 @@ include {{ cookiecutter.npm_package_name }}.json
 
 include LICENSE
 include setup.py
+include setup.cfg
 include pyproject.toml
 include install.json
 
