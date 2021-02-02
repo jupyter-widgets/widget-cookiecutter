@@ -1,5 +1,6 @@
 import ipywidgets as widgets
 from traitlets import Unicode
+from ._version import NPM_PACKAGE_VERSION
 
 # See js/lib/example.js for the frontend counterpart to this file.
 
@@ -20,9 +21,9 @@ class HelloWorld(widgets.DOMWidget):
     _model_module = Unicode('{{ cookiecutter.npm_package_name }}').tag(sync=True)
 
     # Version of the front-end module containing widget view
-    _view_module_version = Unicode('^{{ cookiecutter.npm_package_version }}').tag(sync=True)
+    _view_module_version = Unicode(NPM_PACKAGE_RANGE).tag(sync=True)
     # Version of the front-end module containing widget model
-    _model_module_version = Unicode('^{{ cookiecutter.npm_package_version }}').tag(sync=True)
+    _model_module_version = Unicode(NPM_PACKAGE_RANGE).tag(sync=True)
 
     # Widget specific property.
     # Widget properties are defined as traitlets. Any property tagged with `sync=True`
