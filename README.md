@@ -181,7 +181,7 @@ Now make some changes to your source code. Then:
 To develop this package against JupyterLab, run:
 
 - `pip install -e .` (installs python package for development, runs `yarn install` and `yarn run build` and installs the labextension)
-- `jupyter labextension develop <python_package_name>`.
+- `jupyter labextension develop <python_package_name> --overwrite`
 
 Now make some changes to your source code. Then:
 
