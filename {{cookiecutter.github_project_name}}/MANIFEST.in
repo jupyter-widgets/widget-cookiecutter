@@ -5,7 +5,7 @@ graft js
 graft tests
 prune **/node_modules
 
-include {{ cookiecutter.npm_package_name }}.json
+include {{ cookiecutter.python_package_name }}.json
 
 include LICENSE
 include setup.py
