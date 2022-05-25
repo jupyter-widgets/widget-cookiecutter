@@ -24,7 +24,6 @@ module.exports = (env, argv) => {
                 filename: 'extension.js',
                 path: path.resolve(__dirname, '..', '{{ cookiecutter.python_package_name }}', 'nbextension'),
                 libraryTarget: 'amd',
-                publicPath: '' // publicPath is set in extension.js
             },
             devtool
         },
@@ -39,7 +38,6 @@ module.exports = (env, argv) => {
                 filename: 'index.js',
                 path: path.resolve(__dirname, '..', '{{ cookiecutter.python_package_name }}', 'nbextension'),
                 libraryTarget: 'amd',
-                publicPath: '',
             },
             devtool,
             module: {
@@ -49,24 +47,19 @@ module.exports = (env, argv) => {
         },
         {// Embeddable {{ cookiecutter.npm_package_name }} bundle
         //
-        // This bundle is generally almost identical to the notebook bundle
-        // containing the custom widget views and models.
+        // This bundle is identical to the notebook bundle containing the custom
+        // widget views and models. The only difference is it is placed in the
+        // dist/ directory and shipped with the npm package for use from a CDN
+        // like jsdelivr.
         //
-        // The only difference is in the configuration of the webpack public path
-        // for the static assets.
+        // The target bundle is always `dist/index.js`, which is the path
+        // required by the custom widget embedder.
         //
-        // It will be automatically distributed by unpkg to work with the static
-        // widget embedder.
-        //
-        // The target bundle is always `dist/index.js`, which is the path required
-        // by the custom widget embedder.
-        //
-            entry: './lib/embed.js',
+            entry: './lib/index.js',
             output: {
                 filename: 'index.js',
                 path: path.resolve(__dirname, 'dist'),
                 libraryTarget: 'amd',
-                publicPath: 'https://unpkg.com/{{ cookiecutter.npm_package_name }}@' + version + '/dist/'
             },
             devtool,
             module: {
