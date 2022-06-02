@@ -33,17 +33,19 @@ module.exports = (env, argv) => {
         // custom widget.
         // It must be an amd module
         //
-            entry: './lib/index.js',
+            entry: ['./amd-public-path.js', './lib/index.js'],
             output: {
                 filename: 'index.js',
                 path: path.resolve(__dirname, '..', '{{ cookiecutter.python_package_name }}', 'nbextension'),
                 libraryTarget: 'amd',
+                publicPath: '', // Set in amd-public-path.js
             },
             devtool,
             module: {
                 rules: rules
             },
-            externals: ['@jupyter-widgets/base']
+            // 'module' is the magic requirejs dependency used to set the publicPath
+            externals: ['@jupyter-widgets/base', 'module']
         },
         {// Embeddable {{ cookiecutter.npm_package_name }} bundle
         //
@@ -55,17 +57,19 @@ module.exports = (env, argv) => {
         // The target bundle is always `dist/index.js`, which is the path
         // required by the custom widget embedder.
         //
-            entry: './lib/index.js',
+            entry: ['./amd-public-path.js', './lib/index.js'],
             output: {
                 filename: 'index.js',
                 path: path.resolve(__dirname, 'dist'),
                 libraryTarget: 'amd',
+                publicPath: '', // Set in amd-public-path.js
             },
             devtool,
             module: {
                 rules: rules
             },
-            externals: ['@jupyter-widgets/base']
+            // 'module' is the magic requirejs dependency used to set the publicPath
+            externals: ['@jupyter-widgets/base', 'module']
         }
     ];
 }
