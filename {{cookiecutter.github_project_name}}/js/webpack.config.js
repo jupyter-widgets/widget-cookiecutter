@@ -18,7 +18,6 @@ module.exports = (env, argv) => {
         // some configuration for requirejs, and provides the legacy
         // "load_ipython_extension" function which is required for any notebook
         // extension.
-        //
             entry: './lib/extension.js',
             output: {
                 filename: 'extension.js',
@@ -32,7 +31,6 @@ module.exports = (env, argv) => {
         // This bundle contains the implementation for the custom widget views and
         // custom widget.
         // It must be an amd module
-        //
             entry: ['./amd-public-path.js', './lib/index.js'],
             output: {
                 filename: 'index.js',
@@ -56,7 +54,6 @@ module.exports = (env, argv) => {
         //
         // The target bundle is always `dist/index.js`, which is the path
         // required by the custom widget embedder.
-        //
             entry: ['./amd-public-path.js', './lib/index.js'],
             output: {
                 filename: 'index.js',
