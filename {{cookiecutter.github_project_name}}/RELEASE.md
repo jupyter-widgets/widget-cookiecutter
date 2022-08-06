@@ -4,17 +4,21 @@ Before doing a release, check to see if there are any outstanding changes or unt
 
 ```
 git status
+git clean -fdxn
 ```
 
-Commit changes, and make sure that any untracked files can be deleted. Then clean the repository with `git clean -dffx` to delete all untracked files.
+Commit changes, and make sure that any untracked files can be deleted. Then clean the repository:
+
+```
+git clean -fdx # actually delete untracked files
+```
 
 ## Javascript release
 
 To release a new version of {{ cookiecutter.npm_package_name }} on NPM:
 
 1. Update `js/package.json` with new npm package version
-2. Update `NPM_PACKAGE_RANGE` in  if needed
-3. Build and publish the npm package inside the `js/` directory
+2. Build and publish the npm package inside the `js/` directory
 
    ```
    cd js/
@@ -35,7 +39,7 @@ To release a new version of {{ cookiecutter.python_package_name  }} on PyPI, fir
    git add {{ cookiecutter.python_package_name  }}/_version.py
    git tag -a X.X.X -m 'comment'
    ```
-3. Generate Python packages
+3. Generate Python packages and upload to PyPI:
    ```
    python -m build
    twine check dist/*
