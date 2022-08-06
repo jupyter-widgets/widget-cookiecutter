@@ -1,6 +1,6 @@
 import ipywidgets as widgets
 from traitlets import Unicode
-from ._version import NPM_PACKAGE_VERSION
+from ._version import NPM_PACKAGE_RANGE
 
 # See js/lib/example.js for the frontend counterpart to this file.
 
