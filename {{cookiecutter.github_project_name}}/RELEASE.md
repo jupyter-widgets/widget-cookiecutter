@@ -15,10 +15,10 @@ git clean -fdx # actually delete untracked files
 
 ## Javascript release
 
-To release a new version of {{ cookiecutter.npm_package_name }} on NPM:
+To release a new version of {{ cookiecutter.npm_package_name }} on NPM, first register for an NPM account [here](https://www.npmjs.com/), then log in with `yarn login`. Then:
 
-1. Update `js/package.json` with new npm package version
-2. Build and publish the npm package inside the `js/` directory
+1. Update `js/package.json` with the new npm package version
+2. Build and publish the npm package inside the `js/` directory:
 
    ```
    cd js/
