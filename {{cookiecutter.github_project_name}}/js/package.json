@@ -3,6 +3,7 @@
   "version": "{{ cookiecutter.npm_package_version }}",
   "description": "{{ cookiecutter.project_short_description }}",
   "author": "{{ cookiecutter.author_name }}",
+  "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
