@@ -1,15 +1,15 @@
-var path = require('path');
-var version = require('./package.json').version;
+const path = require('path');
+const version = require('./package.json').version;
 
 // Custom webpack rules are generally the same for all webpack bundles, hence
 // stored in a separate local variable.
-var rules = [
+const rules = [
     { test: /\.css$/, use: ['style-loader', 'css-loader']}
 ]
 
 
 module.exports = (env, argv) => {
-    var devtool = argv.mode === 'development' ? 'source-map' : false;
+    const devtool = argv.mode === 'development' ? 'source-map' : false;
     return [
         {// Notebook extension
         //
