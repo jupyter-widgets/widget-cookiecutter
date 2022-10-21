@@ -1,16 +1,17 @@
-var plugin = require('./index');
-var base = require('@jupyter-widgets/base');
+import {HelloModel, HelloView, version} from './index';
+import {IJupyterWidgetRegistry} from '@jupyter-widgets/base';
 
-module.exports = {
+export const helloWidgetPlugin = {
   id: '{{ cookiecutter.npm_package_name }}:plugin',
-  requires: [base.IJupyterWidgetRegistry],
+  requires: [IJupyterWidgetRegistry],
   activate: function(app, widgets) {
       widgets.registerWidget({
           name: '{{ cookiecutter.npm_package_name }}',
-          version: plugin.version,
-          exports: plugin
+          version: version,
+          exports: { HelloModel, HelloView }
       });
   },
   autoStart: true
 };
 
+export default helloWidgetPlugin;

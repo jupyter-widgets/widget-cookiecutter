@@ -1,8 +1,6 @@
-var widgets = require('@jupyter-widgets/base');
-var _ = require('lodash');
+import { DOMWidgetModel, DOMWidgetView } from '@jupyter-widgets/base';
 
 // See example.py for the kernel counterpart to this file.
-
 
 // Custom Model. Custom widgets models must at least provide default values
 // for model attributes, including
@@ -18,9 +16,12 @@ var _ = require('lodash');
 //  when different from the base class.
 
 // When serialiazing the entire widget state for embedding, only values that
-// differ from the defaults will be specified.
-var HelloModel = widgets.DOMWidgetModel.extend({
-    defaults: _.extend(widgets.DOMWidgetModel.prototype.defaults(), {
+// differ from the defaults will be serialized.
+
+export class HelloModel extends DOMWidgetModel {
+    defaults() {
+      return {
+        ...super.defaults(),
         _model_name : 'HelloModel',
         _view_name : 'HelloView',
         _model_module : '{{ cookiecutter.npm_package_name }}',
@@ -28,28 +29,19 @@ var HelloModel = widgets.DOMWidgetModel.extend({
         _model_module_version : '{{ cookiecutter.npm_package_version }}',
         _view_module_version : '{{ cookiecutter.npm_package_version }}',
         value : 'Hello World!'
-    })
-});
+      };
+    }
+  }
 
-
-// Custom View. Renders the widget model.
-var HelloView = widgets.DOMWidgetView.extend({
-    // Defines how the widget gets rendered into the DOM
-    render: function() {
+export class HelloView extends DOMWidgetView {
+    render() {
         this.value_changed();
 
-        // Observe changes in the value traitlet in Python, and define
-        // a custom callback.
+        // Observe and act on future changes to the value attribute
         this.model.on('change:value', this.value_changed, this);
-    },
+    }
 
-    value_changed: function() {
+    value_changed() {
         this.el.textContent = this.model.get('value');
     }
-});
-
-
-module.exports = {
-    HelloModel: HelloModel,
-    HelloView: HelloView
-};
+}
