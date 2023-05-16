@@ -1,12 +1,24 @@
 # widget-cookiecutter
-#### A cookiecutter template for creating a custom Jupyter widget project
+
+
+# ⚠️ Warning ⚠️ : This project is outdated.
+
+We recommend using [anywidget](https://github.com/manzt/anywidget) or [ipyreact](https://github.com/widgetti/ipyreact)  for creating ipywidgets with a modern web dev experience (Less boilerplate, Updates within milliseconds, no build step required).  
+
+
+---   
+---  
+---   
+
+
 
 [![Documentation Status](https://readthedocs.org/projects/ipywidgets/badge/?version=latest)](https://ipywidgets.readthedocs.io/en/latest/?badge=latest)
 [![Join the chat at https://gitter.im/jupyter-widgets/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jupyter-widgets/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+
+
 A [cookiecutter](https://github.com/audreyr/cookiecutter) template for a custom
 Jupyter widget project.
-
 ## What is widget-cookiecutter?
 
 With **widget-cookiecutter** you can create a custom Jupyter interactive
